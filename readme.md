@@ -99,6 +99,7 @@ Add a `screenshot.jpg` file with the image of your choosing.
 <!-- index.php -->
 <?php get_header(); ?>
 <h1>Milky Way</h1>
+<?php wp_nav_menu(); ?>
 <?php get_footer(); ?>
 ```
 
@@ -163,13 +164,34 @@ https://codex.wordpress.org/The_Loop
 <?php endwhile; endif; ?>
 ```
 
-## Posts and Pages
+### Changing Permalinks
 
-https://developer.wordpress.org/themes/basics/template-files/
+Settings > Permalinks
 
-- Custom Page Templates
-- Global Page Templates
-- Meta Data
+## Custom Posts and Pages
+
+https://developer.wordpress.org/themes/template-files-section/page-template-files/page-templates/
+
+### Custom Page Templates
+
+#### `page.php`
+
+If a specialized template that includes the page’s ID is not found, WordPress looks for and uses the theme’s default page template.
+
+#### `page-{slug}.php`
+
+If no custom template has been assigned, WordPress looks for and uses a specialized template that contains the page’s slug.
+
+### Global Page Templates
+
+Sometimes you’ll want a template that can be used globally by any page, or by multiple pages.  Some developers will group their templates with a filename prefix, such as page_two-columns.php
+
+To create a global template, write an opening PHP comment at the top of the file that states the template’s name.
+
+```php
+// page_two-column.php
+<?php /* Template Name: Two Column */ ?>
+```
 
 ## Plugins
 
@@ -179,6 +201,6 @@ https://developer.wordpress.org/themes/basics/template-files/
 - [Google Analytics](https://wordpress.org/plugins/google-analytics-for-wordpress/)
 - [Contact Form 7](https://wordpress.org/plugins/contact-form-7/)
 
-
-
 ## Domains, Hosting, and Deployment
+
+
