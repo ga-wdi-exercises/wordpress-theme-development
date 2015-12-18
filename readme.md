@@ -85,7 +85,7 @@ Add a `screenshot.jpg` file with the image of your choosing.
 
 ### Header and Footer
 
-```php
+```html
 <!-- header.php -->
 <!doctype html>
 <html>
@@ -95,14 +95,14 @@ Add a `screenshot.jpg` file with the image of your choosing.
   <body>
 ```
 
-```php
+```html
 <!-- index.php -->
 <?php get_header(); ?>
 <h1>Milky Way</h1>
 <?php get_footer(); ?>
 ```
 
-```php
+```html
 <!-- footer.php -->
   <?php wp_footer(); ?>
   </body>
@@ -130,6 +130,7 @@ Add a `screenshot.jpg` file with the image of your choosing.
   - https://codex.wordpress.org/Function_Reference/wp_enqueue_script
 
 ```php
+// functions.php
 <?php
 function milky_way_scripts(){
   wp_enqueue_style("styles", get_stylesheet_uri());
