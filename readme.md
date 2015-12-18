@@ -142,7 +142,9 @@ add_action('wp_enqueue_scripts', 'milky_way_scripts');
 
 ## What is the WordPress Codex?
 
-### The Loop
+- https://codex.wordpress.org/Theme_Development
+
+## The Loop
 
 It checks what is available for that particular page and then displays it.
 The loop starts with an if statement, them moves into a while statement
@@ -150,6 +152,16 @@ as long as there is content to be displayed. Inside the loop is the HTML
 and PHP markup to display what is in the loop.
 
 https://codex.wordpress.org/The_Loop
+
+```html
+<!-- index.php -->
+<?php if(have_posts()): while(have_posts()): the_post(); ?>
+  <article>
+    <h2><a href='<?php the_permalink(); ?>'><?php the_title(); ?></a></h2>
+    <?php the_content(); ?>
+  </article>
+<?php endwhile; endif; ?>
+```
 
 ## Posts and Pages
 
