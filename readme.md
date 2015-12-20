@@ -193,14 +193,105 @@ To create a global template, write an opening PHP comment at the top of the file
 <?php /* Template Name: Two Column */ ?>
 ```
 
+## Reusing the Loop
+
+```
+<?php get_template_part('loop'); ?>
+```
+
+## Searching, Sorting, and Filtering
+
+### Searching
+
+```html
+<!-- index.php -->
+<?php get_search_form(); ?>
+```
+
+### Sorting
+
+```html
+<?php $posts = query_posts( $query_string . "orderby=title&order=ASC"); ?>
+// the loop...
+```
+
+### Filtering
+
+```html
+<?php
+  $current_year = date('Y');
+  $current_month = date('m');
+  query_posts("year=$current_year&monthnum=$current_month&order=ASC" );
+?>
+// the loop...
+```
+
 ## Plugins
 
-- [Advanced Custom Fields](http://www.advancedcustomfields.com/)
-- [Custom Post Type UI](https://wordpress.org/plugins/custom-post-type-ui/)
-- [SEO by Yoast](https://wordpress.org/plugins/wordpress-seo/)
-- [Google Analytics](https://wordpress.org/plugins/google-analytics-for-wordpress/)
-- [Contact Form 7](https://wordpress.org/plugins/contact-form-7/)
+>Plugins are ways to extend and add to the functionality that already exists in WordPress.
+
+https://codex.wordpress.org/Plugins
+
+Plugins are installed in `wp-content/plugins/`
+
+### [Advanced Custom Fields](http://www.advancedcustomfields.com/)
+
+We do: Create a Banner Custom Field.
+
+You do: Create a tldr custom field.
+
+### [Custom Post Type UI](https://wordpress.org/plugins/custom-post-type-ui/)
+
+Custom Post Type UI is often used in conjunction with Advanced Custom Fields.
+
+This is an example of a custom post type: http://www.eachpeachmarket.com/recipes/
+
+### [SEO by Yoast](https://wordpress.org/plugins/wordpress-seo/)
+
+### [Google Analytics](https://wordpress.org/plugins/google-analytics-for-wordpress/)
+
+### [Contact Form 7](https://wordpress.org/plugins/contact-form-7/)
+
+Also https://wordpress.org/plugins/postman-smtp/
 
 ## Domains, Hosting, and Deployment
 
+### Domains
+
+- https://www.namecheap.com/
+- https://iwantmyname.com/ 
+- https://domainr.com/
+
+### Hosting
+
+- https://www.bluehost.com/
+- http://www.hostgator.com/ 
+- https://asmallorange.com/
+
+### Deployment
+
+What workflow enables us to make and test changes locally and then upload
+these changes to a production environment?
+
+```php
+if ( file_exists( dirname( __FILE__ ) . '/config/environment/dev' ) ) {
+  define('DB_NAME', 'development');
+  define('DB_USER', 'development');
+  define('DB_PASSWORD', '9JNdhxgd');
+  define('DB_HOST', '127.0.0.1');
+  define('WP_SITEURL','http://localhost:8888/');
+  define('WP_HOME','http://localhost:8888/');
+} else{
+  define('DB_NAME', 'production');
+  define('DB_USER', 'production');
+  define('DB_PASSWORD', '9JNdhxgd');
+  define('DB_HOST', 'localhost');
+  define('WP_SITEURL','http://production.example.com');
+  define('WP_HOME','http://production.example.com');
+}
+```
+
+**Do Not** Import a local database to a production environment.
+
+- https://wppusher.com/
 
