@@ -1,5 +1,7 @@
 # Wordpress Theme Development
 
+![](https://travis-ci.org/ga-dc/wordpress-theme-development.svg?branch=master)
+
 ## Introduce Yourself
 
 - Name
@@ -14,7 +16,7 @@
 - Learn how to customize navigation
 - Understand how to leverage the WordPress plug-in library
 
-## Schedule
+## Framing
 
 - Getting started with WordPress
 - wordpress.com vs wordpress.org
