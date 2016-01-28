@@ -1,3 +1,5 @@
 language: ruby
+before_script:
+- git clone https://github.com/ga-dc/lesson-plan-checklist
 script:
-- git clone https://github.com/ga-dc/lesson-plan-checklist && rspec lesson-plan-checklist
+- rspec lesson-plan-checklist
